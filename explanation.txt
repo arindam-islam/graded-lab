@@ -1,11 +1,29 @@
-1. The `id` command displays my username and all groups my account belongs to, confirming my user identity on the system.
-2. The `pwd` command shows my current directory, and `ls -la` lists all files with permissions and ownership details in long format.
-3. I created the file `user_info.txt` and wrote the required verification message, then displayed its contents to confirm.
-4. The `wc -m` command counts the total number of characters present in the file.
-5. I accessed the manual page for `mkdir` to learn its options. The `-p` option allows creating parent directories if they do not exist.
-6. Listing the home directory shows all files sorted alphabetically by default.
-7. The `grep` command searches for lines containing the word "admin" in log.txt and displays only the matching lines.
-8. The `uname -r` command displays the version of the Linux kernel currently running.
-9. I attempted to verify network connectivity using the ping command. The command was not found because the ping utility is not installed in the GitHub Codespaces environment,
-   which is a known limitation of minimal cloud-based systems.
-10. The `uptime` command displays how long the system has been running, the number of logged-in users, and the system load average.
+Command: mkdir ~/documents
+Explanation: I created a directory named documents inside my home directory to store project-related files.
+
+Command: cd ~/documents; nano plan.txt
+Explanation: I navigated into the documents directory and created plan.txt using nano, then saved sample content.
+
+Command: cat plan.txt
+Explanation: I displayed the contents of plan.txt to confirm that the text was written correctly.
+
+Command: ls -l plan.txt; whoami
+Explanation: I displayed file metadata with ls -l and confirmed my username with whoami to show ownership.
+
+Command: cp plan.txt plan_copy.txt
+Explanation: I duplicated plan.txt into plan_copy.txt using cp and verified both files with ls -l.
+
+Command: cd ~; mv documents project_documents
+Explanation: I renamed the documents directory to project_documents to better reflect the project scope.
+
+Command: mkdir ~/project_documents/archive
+Explanation: I created an archive subdirectory inside project_documents to store archived files.
+
+Command: mv ~/project_documents/plan_copy.txt ~/project_documents/archive/
+Explanation: I moved plan_copy.txt into the archive directory to organize older files.
+
+Command: ls -R ~/project_documents
+Explanation: I listed all files and subdirectories recursively so the full directory structure is visible.
+
+Command: realpath ~/project_documents/archive/plan_copy.txt
+Explanation: I displayed the absolute path of plan_copy.txt after it was moved into the archive.
