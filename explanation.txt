@@ -1,29 +1,29 @@
-Command: mkdir ~/documents
-Explanation: I created a directory named documents inside my home directory to store project-related files.
+Command: echo "This is sample data for link testing." > sample_data.txt
+Explanation: I created a file named sample_data.txt in my home directory and added sample text to it.
 
-Command: cd ~/documents; nano plan.txt
-Explanation: I navigated into the documents directory and created plan.txt using nano, then saved sample content.
+Command: ln sample_data.txt sample_hard.txt
+Explanation: I created a hard link named sample_hard.txt that points to the same file data as sample_data.txt.
 
-Command: cat plan.txt
-Explanation: I displayed the contents of plan.txt to confirm that the text was written correctly.
+Command: ln -s sample_data.txt sample_soft.txt
+Explanation: I created a symbolic link named sample_soft.txt that points to sample_data.txt.
 
-Command: ls -l plan.txt; whoami
-Explanation: I displayed file metadata with ls -l and confirmed my username with whoami to show ownership.
+Command: ls -i sample_data.txt sample_hard.txt sample_soft.txt
+Explanation: I displayed the inode numbers of the original file, hard link, and symbolic link.
 
-Command: cp plan.txt plan_copy.txt
-Explanation: I duplicated plan.txt into plan_copy.txt using cp and verified both files with ls -l.
+sample_data.txt and sample_hard.txt share the same inode because a hard link points to the same file data. 
+The symbolic link has a different inode because it only stores a reference to the original file path.
 
-Command: cd ~; mv documents project_documents
-Explanation: I renamed the documents directory to project_documents to better reflect the project scope.
+Command: stat sample_data.txt
+Explanation: I used the stat command to view detailed file metadata such as permissions, ownership, size, and timestamps.
 
-Command: mkdir ~/project_documents/archive
-Explanation: I created an archive subdirectory inside project_documents to store archived files.
+Command: du -sh ~
+Explanation: I checked the disk usage of my home directory in a human-readable format.
 
-Command: mv ~/project_documents/plan_copy.txt ~/project_documents/archive/
-Explanation: I moved plan_copy.txt into the archive directory to organize older files.
+Command: ls -lh ~
+Explanation: I displayed the sizes of files in my home directory in a human-readable format.
 
-Command: ls -R ~/project_documents
-Explanation: I listed all files and subdirectories recursively so the full directory structure is visible.
+Command: rm sample_soft.txt; cat sample_data.txt
+Explanation: I deleted the symbolic link and verified that the original file remained unaffected.
 
-Command: realpath ~/project_documents/archive/plan_copy.txt
-Explanation: I displayed the absolute path of plan_copy.txt after it was moved into the archive.
+Command: df -h
+Explanation: I used df -h to display overall filesystem disk space usage in a human-readable format.
